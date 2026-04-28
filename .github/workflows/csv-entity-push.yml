@@ -1,0 +1,29 @@
+name: CSV Entity Push
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'csv_files/**/*.csv'
+
+jobs:
+  push-entities:
+    runs-on: ubuntu-latest
+    environment: sgnl client
+
+    steps:
+      - name: Checkout repository with history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect changed CSVs and push SCIM events
+        uses: SGNL-ai/csv-entity-push-action@v1
+        with:
+          mode: push
+          csv-directory: csv_files
+          entity-push-url: ${{ vars.ENTITY_PUSH_URL }}
+          entity-push-iss: ${{ vars.ENTITY_PUSH_ISS }}
+          entity-push-aud: ${{ vars.ENTITY_PUSH_AUD }}
+          entity-push-token: ${{ secrets.ENTITY_PUSH_TOKEN }}

@@ -1,0 +1,43 @@
+name: Validate CSV IDs
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'csv_files/**/*.csv'
+
+permissions:
+  contents: write
+
+jobs:
+  validate-ids:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Generate missing CSV row IDs
+        id: gen
+        uses: SGNL-ai/csv-entity-push-action@v1
+        with:
+          mode: generate-ids
+          csv-directory: csv_files
+
+      - name: Commit generated IDs
+        if: steps.gen.outputs.ids-generated > 0
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add csv_files/
+          git commit -m "Auto-generate missing CSV row IDs"
+          git push
+
+      - name: Validate all CSV rows have IDs
+        uses: SGNL-ai/csv-entity-push-action@v1
+        with:
+          mode: validate
+          csv-directory: csv_files

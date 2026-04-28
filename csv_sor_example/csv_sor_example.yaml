@@ -1,0 +1,79 @@
+displayName: SOR Name
+description: ""
+hostname: client.sgnl.cloud
+defaultApiCallFrequency: SECONDLY
+defaultApiCallMinInterval: 1
+adapterConfig: e30=
+pushType: SCIM
+deliveryMethod: entityPush
+entities:
+  25c816d0551a4e11a2d5e67f46e7c17a:
+    displayName: Entity 1
+    externalId: Entity1
+    pushExternalId: Entity1
+    description: ""
+    pagesOrderedById: false
+    attributes:
+      - name: Attribute1
+        externalId: attribute1
+        pushExternalId: $.events.*.data.attribute1
+        description: ""
+        type: String
+        indexed: false
+        uniqueId: false
+        attributeAlias: 11cb84d2-5696-415f-a040-b7816c8fdaac
+        list: false
+      - name: id
+        externalId: id
+        pushExternalId: $.sub_id.id
+        description: "CSV Row GUID"
+        type: String
+        indexed: true
+        uniqueId: true
+        attributeAlias: b7a02cb5-2a62-4c87-b6f3-8d0852e610bd
+        list: false
+      - name: Attribute2
+        externalId: attribute2
+        pushExternalId: $.events.*.data.attribute2
+        description: ""
+        type: String
+        indexed: true
+        uniqueId: false
+        attributeAlias: ceadb173-1767-46a2-82da-8f8f234b65a3
+        list: false
+    entityAlias: 25c816d0-551a-4e11-a2d5-e67f46e7c17a
+  3532224f844a45628da44cfb0b5221c0:
+    displayName: Entity 2
+    externalId: Entity2
+    pushExternalId: Entity2
+    description: ""
+    pagesOrderedById: false
+    attributes:
+      - name: Attribute1
+        externalId: attribute1
+        pushExternalId: $.events.*.data.attribute1
+        description: ""
+        type: String
+        indexed: true
+        uniqueId: false
+        attributeAlias: 87d78ad8-b369-415b-8512-55ae135d5cb0
+        list: false
+      - name: id
+        externalId: id
+        pushExternalId: $.sub_id.id
+        description: "CSV Row GUID"
+        type: String
+        indexed: true
+        uniqueId: true
+        attributeAlias: c26a205e-167b-45e4-bda4-4b2414402d9d
+        list: false
+      - name: Attribute2
+        externalId: attribute2
+        pushExternalId: $.events.*.data.attribute2
+        description: ""
+        type: String
+        indexed: true
+        uniqueId: false
+        attributeAlias: ddf8928a-3ac2-4759-bbd5-cd440bbce3b2
+        list: false
+    entityAlias: 3532224f-844a-4562-8da4-4cfb0b5221c0
