@@ -18,11 +18,13 @@ Both workflows use the reusable [csv-entity-push-action](https://github.com/SGNL
 
 ## Getting Started
 
-### 1. Clone this repository
+### 1. Create a new repository from this template
+
+Click **"Use this template"** → **"Create a new repository"** on the [template repo page](https://github.com/SGNL-ai/csv-entity-push-template). Then clone your new repository:
 
 ```sh
-git clone <repo-url>
-cd csv-entity-push
+git clone <your-repo-url>
+cd <your-repo-name>
 ```
 
 ### 2. Create a new SOR in your SGNL client
@@ -51,11 +53,7 @@ Create a GitHub environment called **`sgnl client`** in the repository settings 
 |---|---|
 | `ENTITY_PUSH_TOKEN` | Bearer token for endpoint authentication |
 
-### 5. Initial commit and push
-
-Commit and push to `main` to fully set up the repository with the GitHub Action workflows.
-
-### 6. Add your CSV data
+### 5. Add your CSV data
 
 Add each entity's CSV to the `csv_files/` directory and populate it with your data, leaving the `id` values blank. CSV files follow the naming pattern `SOR Name-Entity Name.csv`.
 
