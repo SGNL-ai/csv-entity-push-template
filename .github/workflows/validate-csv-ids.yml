@@ -16,13 +16,13 @@ jobs:
 
     steps:
       - name: Checkout PR branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           ref: ${{ github.head_ref }}
 
       - name: Generate missing CSV row IDs
         id: gen
-        uses: SGNL-ai/csv-entity-push-action@v1
+        uses: SGNL-ai/csv-entity-push-action@70b2be99e6286d631bb3c933454602e02bf51131 # v1
         with:
           mode: generate-ids
           csv-directory: csv_files
@@ -37,7 +37,7 @@ jobs:
           git push
 
       - name: Validate all CSV rows have IDs
-        uses: SGNL-ai/csv-entity-push-action@v1
+        uses: SGNL-ai/csv-entity-push-action@70b2be99e6286d631bb3c933454602e02bf51131 # v1
         with:
           mode: validate
           csv-directory: csv_files
