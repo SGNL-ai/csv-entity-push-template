@@ -14,12 +14,12 @@ jobs:
 
     steps:
       - name: Checkout repository with history
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           fetch-depth: 0
 
       - name: Detect changed CSVs and push SCIM events
-        uses: SGNL-ai/csv-entity-push-action@v1
+        uses: SGNL-ai/csv-entity-push-action@70b2be99e6286d631bb3c933454602e02bf51131 # v1
         with:
           mode: push
           csv-directory: csv_files
